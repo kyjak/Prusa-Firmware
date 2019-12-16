@@ -7660,7 +7660,8 @@ Sigma_Exit:
     break;
 
 #endif //TMC2130_SERVICE_CODES_M910_M918
-  
+
+
   // M920 set MAX endstop inverting of axis to 1/0
   case 920:
     if(code_seen('X')) X_MAX_ENDSTOP_INVERTING = code_value_uint8();
@@ -7674,6 +7675,12 @@ Sigma_Exit:
     if(code_seen('X')) X_MIN_ENDSTOP_INVERTING = code_value_uint8();
     if(code_seen('Y')) Y_MIN_ENDSTOP_INVERTING = code_value_uint8();
     if(code_seen('Z')) Z_MIN_ENDSTOP_INVERTING = code_value_uint8();
+    SERIAL_PROTOCOLLNRPGM(MSG_OK);
+  break;
+  case 922:
+    if(code_seen('Y')) SCANNER_MODE = 1;
+    if(code_seen('N')) SCANNER_MODE = 0;
+    SERIAL_PROTOCOLLNRPGM(SCANNER_MODE == 1? MSG_SCANNER_MODE_ON: MSG_SCANNER_MODE_OFF);
     SERIAL_PROTOCOLLNRPGM(MSG_OK);
   break;
 

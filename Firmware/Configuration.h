@@ -2,10 +2,18 @@
 #define CONFIGURATION_H
 
 #include "boards.h"
+#include <stdint.h>
 
 #define STR_HELPER(x) #x
 #define STR(x) STR_HELPER(x)
 
+extern uint8_t SCANNER_MODE;
+extern uint8_t X_MIN_ENDSTOP_INVERTING; // set to 1 to invert the logic of the endstop.
+extern uint8_t Y_MIN_ENDSTOP_INVERTING; // set to 1 to invert the logic of the endstop.
+extern uint8_t Z_MIN_ENDSTOP_INVERTING; // set to 1 to invert the logic of the endstop.
+extern uint8_t X_MAX_ENDSTOP_INVERTING; // set to 1 to invert the logic of the endstop.
+extern uint8_t Y_MAX_ENDSTOP_INVERTING; // set to 1 to invert the logic of the endstop.
+extern uint8_t Z_MAX_ENDSTOP_INVERTING;
 //-//
 #include <avr/pgmspace.h>
 extern const uint16_t _nPrinterType;
@@ -20,8 +28,8 @@ extern PGM_P sPrinterName;
 #define FW_COMMIT_NR 2869
 // FW_VERSION_UNKNOWN means this is an unofficial build.
 // The firmware should only be checked into github with this symbol.
-#define FW_DEV_VERSION FW_VERSION_UNKNOWN
-#define FW_REPOSITORY "Unknown"
+#define FW_DEV_VERSION FW_VERSION_RC
+#define FW_REPOSITORY "Prusa3d"
 #define FW_VERSION_FULL FW_VERSION "-" STR(FW_COMMIT_NR)
 
 // G-code language level
@@ -224,6 +232,9 @@ your extruder heater takes 2 minutes to hit the target on heating.
 
 // The pullups are needed if you directly connect a mechanical endswitch between the signal and ground pins.
 
+//#define X_MAX_ENDSTOP_INVERTING 0 // set to 1 to invert the logic of the endstop.
+//#define Y_MAX_ENDSTOP_INVERTING 0 // set to 1 to invert the logic of the endstop.
+//#define Z_MAX_ENDSTOP_INVERTING 1 // set to 1 to invert the logic of the endstop.
 extern uint8_t X_MAX_ENDSTOP_INVERTING; // set to 1 to invert the logic of the endstop.
 extern uint8_t Y_MAX_ENDSTOP_INVERTING; // set to 1 to invert the logic of the endstop.
 extern uint8_t Z_MAX_ENDSTOP_INVERTING; // set to 1 to invert the logic of the endstop.

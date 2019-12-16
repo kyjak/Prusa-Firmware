@@ -12,6 +12,6 @@ uint8_t Z_MIN_ENDSTOP_INVERTING = 0; // set to 1 to invert the logic of the ends
 uint8_t X_MAX_ENDSTOP_INVERTING = 0; // set to 1 to invert the logic of the endstop.
 uint8_t Y_MAX_ENDSTOP_INVERTING = 0; // set to 1 to invert the logic of the endstop.
 uint8_t Z_MAX_ENDSTOP_INVERTING = 1;
-
+uint8_t SCANNER_MODE = 0;
 uint16_t nPrinterType;
 PGM_P sPrinterName;
