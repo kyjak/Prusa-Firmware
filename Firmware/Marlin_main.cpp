@@ -3448,6 +3448,8 @@ extern uint8_t st_backlash_y;
 //!@n M900 - Set LIN_ADVANCE options, if enabled. See Configuration_adv.h for details.
 //!@n M907 - Set digital trimpot motor current using axis codes.
 //!@n M908 - Control digital trimpot directly.
+//!@n M920 - Set MAX endstop inverting for axis XYZ (accepts 0 and 1, for example X0 Y1 Z0)
+//!@n M921 - Set MIN endstop inverting for axis XYZ (accepts 0 and 1, for example X0 Y1 Z0)
 //!@n M350 - Set microstepping mode.
 //!@n M351 - Toggle MS1 MS2 pins directly.
 //!
@@ -7604,6 +7606,22 @@ Sigma_Exit:
     break;
 
 #endif //TMC2130_SERVICE_CODES_M910_M918
+  
+  // M920 set MAX endstop inverting of axis to 1/0
+  case 920:
+    if(code_seen('X')) X_MAX_ENDSTOP_INVERTING = code_value_uint8();
+    if(code_seen('Y')) Y_MAX_ENDSTOP_INVERTING = code_value_uint8();
+    if(code_seen('Z')) Z_MAX_ENDSTOP_INVERTING = code_value_uint8();
+    SERIAL_PROTOCOLLNRPGM(MSG_OK);
+  break;
+
+  // M921 set MIN endstop inverting of axis to 1/0
+  case 921:
+    if(code_seen('X')) X_MIN_ENDSTOP_INVERTING = code_value_uint8();
+    if(code_seen('Y')) Y_MIN_ENDSTOP_INVERTING = code_value_uint8();
+    if(code_seen('Z')) Z_MIN_ENDSTOP_INVERTING = code_value_uint8();
+    SERIAL_PROTOCOLLNRPGM(MSG_OK);
+  break;
 
     //! ### M350 - Set microstepping mode
     // ---------------------------------------------------
