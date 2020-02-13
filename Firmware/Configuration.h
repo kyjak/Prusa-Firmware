@@ -24,8 +24,8 @@ extern uint16_t nPrinterType;
 extern PGM_P sPrinterName;
 
 // Firmware version
-#define FW_VERSION "3.8.1"
-#define FW_COMMIT_NR 2869
+#define FW_VERSION "3.9.0"
+#define FW_COMMIT_NR 3175
 // FW_VERSION_UNKNOWN means this is an unofficial build.
 // The firmware should only be checked into github with this symbol.
 #define FW_DEV_VERSION FW_VERSION_RC
@@ -411,7 +411,7 @@ extern uint8_t Z_MAX_ENDSTOP_INVERTING; // set to 1 to invert the logic of the e
 #define DEFAULT_XJERK 10  // (mm/sec)
 #define DEFAULT_YJERK 10  // (mm/sec)
 #define DEFAULT_ZJERK 0.4 // (mm/sec)
-#define DEFAULT_EJERK 2.5 // (mm/sec)
+#define DEFAULT_EJERK 4.5 // (mm/sec)
 
 //===========================================================================
 //=============================Additional Features===========================
